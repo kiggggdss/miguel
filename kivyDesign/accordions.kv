@@ -1,0 +1,201 @@
+#:import Factory kivy.factory.Factory
+
+<Modal@Popup>
+    auto_dismis: False 
+    title: "Message Box"
+    size_hint: (0.4, 0.25)
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+        Label:
+            text: "Success"
+        Button:
+            text: "Exit"
+            on_release: root.dismiss()
+
+<MyLayout>
+    BoxLayout:
+        orientation:'vertical'
+        size: root.width, root.height 
+
+        Label:
+            text:'O $ide Mafia'
+            halign: "center"
+            font_size: 32
+            color: "#fafafa"
+            background_normal: ''
+            background_color: (33/255, 150/255, 243/255, .55)
+            canvas.before:
+                
+                Color:  
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint: (1.0,0.2)
+            bold: True
+        
+        Accordion:
+            id: acc_bgAlpha
+            orientation: "vertical"
+            background_color: (66/255, 66/255, 66/255, 1.0)
+            canvas.before:
+             
+                Color:  
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            AccordionItem:
+                title: "Menu"  
+                background_normal: r'C:\Users\Student\Desktop\color\red.jpg'
+                background_selected: r'C:\Users\Student\Desktop\color\crips.png'
+                Image:
+                    source: r'C:\Users\Student\Desktop\color\cashman.jpg'
+                    allow_stretch: True
+                    keep_ratio: False
+
+            AccordionItem:
+                title: "Image"
+                background_normal: r'C:\Users\Student\Desktop\color\red.jpg'
+                background_selected: r'C:\Users\Student\Desktop\color\crips.png'
+                Image:
+                    source: r'C:\Users\Student\Desktop\color\osidem.jpg'
+                    allow_stretch: True
+                    keep_ratio: False
+            AccordionItem:
+                title: "Carousels"
+                background_normal: r'C:\Users\Student\Desktop\color\red.jpg'
+                background_selected: r'C:\Users\Student\Desktop\color\crips.png'
+                Carousel:
+                    direction: "right"
+                    loop: True
+                    Image:
+                        source: r'C:\Users\Student\Desktop\color\yeah.jpg'
+                    Image:
+                        source: r'C:\Users\Student\Desktop\color\cb.jpg'
+                    Image:
+                        source: r'C:\Users\Student\Desktop\color\theweeknd.jpg'
+                    Image:
+                        source: r'C:\Users\Student\Desktop\color\aljames.jpg'
+                      
+                
+            AccordionItem:
+                title: "Sliders"
+                background_normal: r'C:\Users\Student\Desktop\color\red.jpg'
+                background_selected: r'C:\Users\Student\Desktop\color\crips.png'
+
+                Slider:
+                    orientation: "horizontal"
+                    min: 5
+                    max: 10
+                    step: 1
+                    on_value: root.sliderFunc(self.value)
+                Label:
+                    id: slider_label
+                    text: 'Slider value: 0'
+                    font_size: 25
+            AccordionItem:
+                title: "Checkboxes"
+                background_normal: r'C:\Users\Student\Desktop\color\red.jpg'
+                background_selected: r'C:\Users\Student\Desktop\color\crips.png'
+                BoxLayout:
+                    orientation: 'vertical'
+                    Label:
+                        text: "Application Checklist"
+                        size_hint: 0.5,0.2
+                        pos_hint: {'center_x': 0.5}
+                    GridLayout:
+                        cols: 2
+                        CheckBox:
+                            on_active: root.checkboxFunc(self, self.active, "Resume")
+                        Label:
+                            text: "Resume"
+                        CheckBox:
+                            on_active: root.checkboxFunc(self, self.active, "Application Form")
+                        Label:
+                            text: "Application Form"
+                        CheckBox:
+                            on_active: root.checkboxFunc(self, self.active, "SSS IDme")
+                        Label:
+                            text: "SSS IDme"
+                        CheckBox:
+                            on_active: root.checkboxFunc(self, self.active, "TIN ID")
+                        Label:
+                            text: "TIN ID"
+                        CheckBox:
+                            on_active: root.checkboxFunc(self, self.active, "PAGIBIG ID")
+                        Label:
+                            text: "PAGIBIG ID"
+                        CheckBox:
+                            on_active: root.checkboxFunc(self, self.active, "MEDICAL")
+                        Label:
+                            text: "MEDICAL"
+                        CheckBox:
+                            on_active: root.checkboxFunc(self, self.active, "Transcript of Records")
+                        Label:
+                            text: "Transcript of Records"
+                    Label:
+                        id: status
+                        text: "Application Status: Incomplete"
+                        size_hint: 0.5,0.2
+                        pos_hint: {'center_x': 0.5}
+
+
+
+            AccordionItem:
+                title: "Radioboxes"
+                background_normal: r'C:\Users\Student\Desktop\color\red.jpg'
+                background_selected: r'C:\Users\Student\Desktop\color\crips.png'
+                Image:
+                    source: r'C:\Users\Student\Desktop\color\nateman.jpg'
+                    allow_stretch: True
+                    keep_ratio: False
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    Label:
+                        text:'Which of the following is not a branch of science?'
+                        size_hint: 0.5,0.2
+                        pos_hint: {'center_x': 0.5}
+                    GridLayout:
+                        cols: 2
+                        CheckBox:
+                            group: "question1"
+                        Label:
+                            text:"Astronomy"
+                        CheckBox:
+                            group: "question1"
+                        Label:
+                            text:"Astrophysics"
+                        CheckBox:
+                            group: "question1"
+                        Label:
+                            text:"Astrology"
+                        CheckBox:
+                            group: "question1"
+                        Label:
+                            text:"Astrology"
+                        CheckBox:
+                            group: "question1"
+                        Label:
+                            text:"Anthropology"
+                    Label:
+                        id: status
+                        text: "Waiting for an answer"
+                        size_hint: 0.5,0.2
+                        pos_hint: {'center_x': 0.5}
+            AccordionItem:
+                title: "Popup box"
+                background_normal: r'C:\Users\Student\Desktop\color\red.jpg'
+                background_selected: r'C:\Users\Student\Desktop\color\crips.png'
+            
+
+                Button: 
+                    text: "Click me!"
+                    font_size: 32
+                    on_release: Factory.Modal().open()
+
+
+                        
+                        

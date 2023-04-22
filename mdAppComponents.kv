@@ -1,0 +1,96 @@
+<MainLayout>:
+
+    orientation: "vertical"
+
+    MDTopAppBar:
+        title: "Navigation Bar"
+        left_action_items: [["menu", lambda x: app.callback()]]
+        right_action_items: [["dots-vertical"],["theme-light-dark",lambda x: root.func(app)]]
+        #md_bg_color: app.theme_cls.accent_color
+        elevation: 4
+
+    MDLabel:
+        text: ""
+        #mode: "free-end"
+
+
+    MDBottomNavigation:
+        panel_color: app.theme_cls.primary_color
+        selected_color_background: None
+        text_color_active: app.theme_cls.primary_dark
+        text_color_normal: 1,1,1,1
+        use_text: False
+
+        MDBottomNavigationItem:
+            name: 'screen 1'
+            icon: "home"
+
+            MDLabel:
+                text: 'Welcome to KivyMD'
+                font_size: "54sp"
+                halign: 'center'
+
+        MDBottomNavigationItem:
+            icon: "magnify"
+
+            BoxLayout:
+                orientation: 'vertical'
+
+                MDIconButton:
+                    icon: "facebook"
+                    icon_size: "55sp"
+
+
+                MDFloatingActionButton:
+                    icon: "facebook"
+
+                MDFlatButton:
+                    text: "Click Me"
+                    font_size: '24sp'
+
+                MDRaisedButton:
+                    text: "Submit"
+                    font_size: "24sp"
+
+                MDRectangleFlatButton:
+                    text: "Hello"
+                    font_size:"24sp"
+                    text_color: "white"
+                    line_color: app.theme_cls.primary_color
+
+                MDRectangleFlatIconButton:
+                    icon: "account-alert-outline"
+                    theme_icon_color: "Custom"
+                    icon_color: "white"
+                    line_color:app.theme_cls.primary_color
+                    text: "Logout"
+
+                MDFillRoundFlatButton:
+                    text: "Submit"
+                    font_size: "24sp"
+                    text_color: "white"
+
+                MDRoundFlatButton:
+                    text: "Hello"
+                    font_size: "24sp"
+                    text_color: "white"
+
+                MDRoundFlatIconButton:
+                    icon: "account-alert-outline"
+                    theme_icon_color: "Custom"
+                    icon_color: "white"
+                    text: "Logout"
+                    font_size: "24sp"
+                    text_color: "white"
+
+
+
+
+        MDBottomNavigationItem:
+            icon: "plus"
+
+        MDBottomNavigationItem:
+            icon: "message-processing-outline"
+
+        MDBottomNavigationItem:
+            icon: "bell-outline"
